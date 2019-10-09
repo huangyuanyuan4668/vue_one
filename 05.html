@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <div>
+            <hello-world></hello-world>
+        </div>
+    </div>
+    <template id="box">
+        <div>
+            <h1 @click="change">标题：{{title}}</h1>
+            <ul v-for="(item,x) in arr" :key="x">
+                <li>{{item}}</li>
+            </ul>
+        </div>
+    </template>
+</body>
+<script>
+    let vm = new Vue({
+        el:"#app",
+        data:{},
+        components:{
+            'HelloWorld':{
+                template:"#box",
+                data(){
+                    return{
+                        title:"hello world",
+                        arr:['111','222','333']
+                    }
+                },
+                methods: {
+                    change() {
+                       this.title = "wellcome" 
+                    }
+                }
+            }
+        }
+    })
+</script>
+</html>

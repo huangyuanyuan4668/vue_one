@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <hello>
+            <div slot="one">one</div>
+            <div slot="two">two</div>
+            <div slot="three">three</div>
+        </hello>
+    </div> 
+</body>
+<script>
+ Vue.component('hello',{
+     template:`
+        <div>
+            <slot name="one">1号选手</slot>
+            <slot name="two">2号选手</slot>
+            <slot name="three">3号选手</slot>
+        </div>
+     `
+ })
+ new Vue({
+     el:"#app"
+ })
+</script>
+</html>

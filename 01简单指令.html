@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <!-- v-text -->
+        <div v-text="massgae"></div>
+        <span>{{massgae}}</span>
+        <!-- v-html  -->
+        <div v-html="html"></div>
+        <!-- v-model -->
+        <input type="text" v-model="something">
+        <p>指令v-model is: {{ something }}</p>
+        <!-- v-show ,v-on  -->
+        <input type="button" value="点击" v-on:click="name" >
+        <div v-show="flag" style="width: 200px;height: 200px;background-color: green"></div>
+        <!-- v-bind -->
+        <img v-bind:src="imgurl" alt="" srcset="">
+        <img :src="imgurl" alt="" srcset="">
+        <!-- v-for -->
+        <ul v-for="item in list">
+            <li>{{item}}</li>
+        </ul>
+        <!-- 严格版 -->
+        <ul v-for="(item,x) in list" :key="x">
+            <li>{{item}}</li>
+        </ul>
+        <!-- v-if -->
+        <div v-if="seen">1</div>
+        <div v-else>0</div>
+    </div>
+</body>
+<script>
+    let vm = new Vue({
+        el:"#app",
+        data:{
+            massgae:"指令v-text",
+            html:"<h1>指令v-html</h1>",
+            something:"",
+            flag:true,
+            imgurl:"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1570533566911&di=e3d625a104ae735ebb8049681563b313&imgtype=0&src=http%3A%2F%2Fimg.faloo.com%2FNovelNode%2F0x0%2F1%2F1083%2F1083567.gif",
+            list:["1","2","3","4"],
+            seen:true
+        },
+        methods: {
+            name() {
+              this.flag=!this.flag 
+            },
+        }
+    })
+</script>
+</html>
